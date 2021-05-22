@@ -2994,6 +2994,12 @@ static void System_ToggleFullConsole()
 	gameaction = ga_fullconsole;
 }
 
+static void System_StartCutscene(bool blockui)
+{
+	gameaction = blockui ? ga_intro : ga_intermission;
+}
+
+
 bool  CheckSkipGameOptionBlock(const char* str);
 
 //==========================================================================
@@ -3045,7 +3051,7 @@ static int D_DoomMain_Internal (void)
 		nullptr, 
 		nullptr,
 		System_ToggleFullConsole,
-		nullptr,
+		System_StartCutscene,
 	};
 
 	
